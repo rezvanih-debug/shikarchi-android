@@ -1,7 +1,7 @@
 
 name: Build Shikarchi Android
 
-on:
+"on":
   workflow_dispatch:
 
 jobs:
