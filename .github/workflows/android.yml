@@ -8,7 +8,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - name: Get source code
+      - name: Checkout project
         uses: actions/checkout@v4
 
       - name: Set up Java
@@ -21,14 +21,10 @@ jobs:
         uses: android-actions/setup-android@v3
 
       - name: Build APK
-        run: |
-          chmod +x gradlew
-          ./gradlew assembleDebug
+        run: chmod +x gradlew && ./gradlew assembleDebug
 
-      - name: Save APK
+      - name: Upload APK
         uses: actions/upload-artifact@v4
         with:
-         name: shikarchi-android-apk
-          
+          name: shikarchi-android-apk
           path: app/build/outputs/apk/debug/*.apk
-          
